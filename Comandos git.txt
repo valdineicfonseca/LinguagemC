@@ -1,0 +1,12 @@
+Comando git:
+
+>git init
+>git add .
+>git commit . -m "Exercicios linguagem C"
+>git branch -M main
+>git remote add origin https://github.com/valdineicfonseca/LinguagemC.git
+>git push -u origin main
+
+
+
+
