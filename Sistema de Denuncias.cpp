@@ -1,6 +1,15 @@
 /* 
 Portfolio - programacao estruturada
 
+Desenvolver um programa em C para cadastrar as denúncias como iluminação,
+Saneamento Básico, Mobilidade Urbana, etc. usando as estruturas de dados como registro
+(struct) e vetor (array) para armazenar e manipular os dados cadastrados.
+As operações são simples :
+ .Cadastrar denúncias;
+ .Consultar a lista das denúncias cadastradas
+ .finalizar
+
+
 Author: Valdinei C. Fonseca
 Data: 01/03/2022
 
@@ -82,7 +91,7 @@ void exibe_dados(Dados *dados) {
 
         for (; dados != NULL; dados = dados->proximo) {
                 
-                fprintf(stdout, "Codigo.....: %d\n", dados->codigo);
+                fprintf(stdout, "Codigo....: %d\n", dados->codigo);
 				fprintf(stdout, "Descricao..: %s\n", dados->descricao);
                 fprintf(stdout, "Data.......: %s\n", dados->data);
                 
@@ -92,51 +101,6 @@ void exibe_dados(Dados *dados) {
         getch();
 }
 
-/* Percorre cada ponta comparando o nome com a chave. */
-void busca_dados(Dados *dados, char *chave) {
-
-        int achou = 0;
-
-        fprintf(stdout, "Cadastro:\n\n");
-        for (; dados != NULL; dados = dados->proximo) {
-                if (strcmp(chave, dados->descricao) == 0) {
-
-                        fprintf(stdout, "------------------------\n");
-                        
-						fprintf(stdout, "Codigo........: %d\n", dados->codigo);
-						fprintf(stdout, "Descricao.....: %s\n", dados->descricao);
-                        fprintf(stdout, "Data..........: %s\n", dados->data);
-                        
-                        fprintf(stdout, "------------------------\n");
-                        achou++;
-                }
-        }
-
-        if (achou == 0)
-                fprintf(stdout, "Nenhum resultado encontrado.\nPressione uma tecla para continuar.\n");
-        else
-                fprintf(stdout, "Foram encontrados %d registros. \nPressione uma tecla para continuar.\n", achou);
-
-        sleep(1);
-        getch();
-}
-
-/* Deleta o ultimo registro inserido. */
-Dados *deleta_dados(Dados *dados) {
-
-        Dados *novo;
-
-        novo = dados->proximo;
-
-        free(dados->descricao);
-        free(dados->data);
-        free(dados);
-
-        fprintf(stdout, "O ultimo registro inserido foi deletado com sucesso.\\n");
-        sleep(1);
-
-        return novo;
-}
 
 /* a pena checa se a lista e NULL ou nao. */
 int checa_vazio(Dados *dados) {
