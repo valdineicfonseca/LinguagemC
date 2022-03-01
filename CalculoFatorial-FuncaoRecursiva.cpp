@@ -17,7 +17,7 @@ Author: Valdinei C. @ 2022
 
 int fatorial(int valor){
 	if(valor != 1){
-		printf("%d\n",&valor);
+		printf("%d\n",valor);
 		return valor * fatorial(valor -1);
 	
 	}
